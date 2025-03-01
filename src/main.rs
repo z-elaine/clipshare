@@ -59,7 +59,7 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
 
 #[instrument(skip(clipboard))]
 async fn start_server(clipboard: Arc<Clipboard>) -> Result<(), Box<dyn Error + Send + Sync>> {
-    let socket = UdpSocket::bind("0.0.0.0:0").await?;
+    let socket = UdpSocket::bind("0.0.0.0:51580").await?;
     socket.set_broadcast(true)?;
     let port = socket.local_addr()?.port();
 
